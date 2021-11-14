@@ -1,0 +1,2 @@
+INSERT INTO EMPLOYEES
+VALUES (1, 'name', '1', 123);
