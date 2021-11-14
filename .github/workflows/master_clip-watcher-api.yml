@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b279c39abf143158c553fdb5a9a8b3f }}/jelon97/clip-watcher-api:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b279c39abf143158c553fdb5a9a8b3f }}/clip-watcher-api:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'clip-watcher-api'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_c077000c879746419d1131c2b71d7539 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b279c39abf143158c553fdb5a9a8b3f }}/jelon97/clip-watcher-api:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b279c39abf143158c553fdb5a9a8b3f }}/clip-watcher-api:${{ github.sha }}'
