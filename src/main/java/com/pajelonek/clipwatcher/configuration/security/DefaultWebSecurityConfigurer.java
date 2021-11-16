@@ -1,4 +1,4 @@
-package com.pajelonek.clipwatcher.security;
+package com.pajelonek.clipwatcher.configuration.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;

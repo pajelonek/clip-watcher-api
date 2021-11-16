@@ -1,6 +1,5 @@
-package com.pajelonek.clipwatcher.security;
+package com.pajelonek.clipwatcher.configuration.security;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
-@ActiveProfiles("LOCAL")
+@ActiveProfiles("DEV")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class DefaultWebSecurityConfigurerTest {
+public class CustomWebSecurityConfigurerTest {
 
     @Autowired
     private TestRestTemplate template;
@@ -25,7 +24,7 @@ public class DefaultWebSecurityConfigurerTest {
     public void givenRequestWithWrongCredentials_shouldReturn401() {
         ResponseEntity<String> result = template.withBasicAuth("dummyUser", "dummyPassword")
                 .getForEntity("/demo/test", String.class);
-        assertEquals(HttpStatus.OK, result.getStatusCode());
+        assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
     }
 
     @Test
@@ -38,6 +37,6 @@ public class DefaultWebSecurityConfigurerTest {
     @Test
     public void givenRequestWithoutBasicAuth_shouldReturn401() {
         ResponseEntity<String> result = template.getForEntity("/demo/test", String.class);
-        assertEquals(HttpStatus.OK, result.getStatusCode());
+        assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
     }
 }
