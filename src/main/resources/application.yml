@@ -1,3 +1,6 @@
 spring:
   profiles:
     default: DEV
+  jpa:
+    hibernate:
+      ddl-auto: none
