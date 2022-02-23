@@ -1,4 +1,4 @@
-package com.pajelonek.clipwatcher.accessingdatamysql;
+package com.pajelonek.clipwatcher.domain.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

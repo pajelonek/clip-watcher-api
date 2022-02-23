@@ -1,5 +1,6 @@
-package com.pajelonek.clipwatcher.accessingdatamysql;
+package com.pajelonek.clipwatcher.mybatis;
 
+import com.pajelonek.clipwatcher.domain.test.Employee;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
