@@ -12,12 +12,6 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class UserService {
 
-    private final PasswordEncoder passwordEncoder;
-
-    public UserService( PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
-
     public ResponseEntity<RegistrationResponse> register(User userRequest) {
         log.info("Incoming POST request for /register: " + userRequest);
 

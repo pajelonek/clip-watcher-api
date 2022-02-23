@@ -21,8 +21,4 @@ public class DefaultWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
 }

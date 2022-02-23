@@ -41,8 +41,4 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .roles("USER");
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
 }
