@@ -11,7 +11,7 @@
 
     <groupId>com.pajelonek</groupId>
     <artifactId>clipwatcher</artifactId>
-    <version>0.0.8-SNAPSHOT</version>
+    <version>0.0.9-SNAPSHOT</version>
     <name>ClipWatcher-API</name>
     <description>Backend for clip watcher application</description>
     <properties>
@@ -30,7 +30,7 @@
         <!-- JaCoCo Properties -->
         <sonar.organization>pajelonek</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.exclusions>src/main/**/security/*,src/main/**/domain/*</sonar.exclusions>
+        <sonar.jacoco.excludes>*domain*</sonar.jacoco.excludes>
         <jacoco.version>0.8.7</jacoco.version>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
