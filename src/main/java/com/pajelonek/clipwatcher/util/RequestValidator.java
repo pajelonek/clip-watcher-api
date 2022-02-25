@@ -12,7 +12,6 @@ public class RequestValidator {
         int requiredParams = 0;
         // todo tylko jeden główny parametr może być użyty
 
-
         if (clipsRequest.getGameId() == null && clipsRequest.getBroadcasterId() == null && clipsRequest.getClipId() == null) {
             throw new DefaultException(Error.CLIPS_REQUIRED_MAIN_QUERY);
         }
@@ -21,7 +20,7 @@ public class RequestValidator {
         if (clipsRequest.getFirst() != null) {
             int first = Integer.parseInt(clipsRequest.getFirst());
             if (first > 100 || first < 0 ) {
-                throw new IllegalArgumentException("First param in clip endpoint must be between 0 and 100");
+                throw new DefaultException(Error.CLIPS_WRONG_FIRST_PARAMETER);
             }
         }
     }
