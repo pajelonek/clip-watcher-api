@@ -27,6 +27,8 @@ jobs:
         path: ~/.sonar/cache
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
+    - name: Fortify ScanCentral Scan
+      uses: fortify/gha-setup-scancentral-client@v1.2.0
     - name: Cache Maven packages
       uses: actions/cache@v1
       with:
