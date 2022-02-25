@@ -2,7 +2,6 @@ package com.pajelonek.clipwatcher.configuration.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
@@ -11,8 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Profile("DEV")
 @Configuration
@@ -26,10 +23,10 @@ public class CustomWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     private String password;
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers(HttpMethod.GET, "/actuator/**");
+                .antMatchers(HttpMethod.GET, "/actuator/health");
     }
 
     @Override

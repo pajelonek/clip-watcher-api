@@ -5,8 +5,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Getter
-@Setter
 public class ClipsRequest {
 
     private String gameId;

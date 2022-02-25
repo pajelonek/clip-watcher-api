@@ -39,4 +39,10 @@ public class CustomWebSecurityConfigurerTest {
         ResponseEntity<String> result = template.getForEntity("/demo/test", String.class);
         assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
     }
+
+    @Test
+    public void givenRequestToHealth_shouldReturn200() {
+        ResponseEntity<String> result = template.getForEntity("/actuator/health", String.class);
+        assertEquals(HttpStatus.OK, result.getStatusCode());
+    }
 }

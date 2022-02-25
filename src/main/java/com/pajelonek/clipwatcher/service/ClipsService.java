@@ -19,7 +19,7 @@ public class ClipsService {
     }
 
     public ResponseEntity<ClipsResponse> clips(ClipsRequest clipsRequest) {
-        log.info("Incoming POST request for /clips");
+        log.info("Incoming POST request for /clips with request: " + clipsRequest);
         ClipsResponse clipsResponse = twitchApiClient.clips(clipsRequest);
         return new ResponseEntity<>(clipsResponse, HttpStatus.OK);
     }
