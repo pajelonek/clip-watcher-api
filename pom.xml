@@ -11,7 +11,7 @@
 
     <groupId>com.pajelonek</groupId>
     <artifactId>clipwatcher</artifactId>
-    <version>0.0.15-SNAPSHOT</version>
+    <version>0.0.16-SNAPSHOT</version>
     <name>ClipWatcher-API</name>
     <description>Backend for clip watcher application</description>
     <properties>
@@ -25,6 +25,7 @@
         <junit.version>4.13.2</junit.version>
         <junit.vintage.version>5.8.2</junit.vintage.version>
         <h2.version>2.1.210</h2.version>
+        <spring.cloud.starter.stub.version>3.1.1</spring.cloud.starter.stub.version>
 
 
         <!-- Sonar Properties -->
@@ -94,7 +95,7 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
-            <version>3.1.1</version>
+            <version>${spring.cloud.starter.stub.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
