@@ -1,5 +1,6 @@
 package integration;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pajelonek.clipwatcher.ClipWatcherApplication;
 import com.pajelonek.clipwatcher.configuration.twitch.TwitchCredentialsConfiguration;
 import com.pajelonek.clipwatcher.domain.error.DefaultException;
@@ -7,6 +8,7 @@ import com.pajelonek.clipwatcher.domain.error.Error;
 import com.pajelonek.clipwatcher.domain.error.ErrorMessage;
 import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
 import com.pajelonek.clipwatcher.domain.twitch.ClipsResponse;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,17 +19,23 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Import;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.client.ExpectedCount;
+import org.springframework.test.web.client.MockRestServiceServer;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
+import java.io.IOException;
 import java.util.Objects;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
+import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -40,9 +48,45 @@ class ClipsIntegrationTests {
     private int port;
 
     @Autowired
-    private TestRestTemplate restTemplate;
+    private TestRestTemplate testRestTemplate;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     private static final String URL = "/clips";
+
+    private MockRestServiceServer mockServer;
+
+    @BeforeEach
+    public void init() {
+        mockServer = MockRestServiceServer.createServer(this.restTemplate);
+    }
+
+    @Test
+    void testClipsResponseWithGameId() throws IOException {
+        // given
+        ClipsRequest clipsRequest = ClipsRequest.builder()
+                .clipId(null)
+                .broadcasterId(null)
+                .gameId("dummy")
+                .build();
+
+        mockServer.expect(ExpectedCount.manyTimes(), requestTo("https://api.twitch.tv/helix/clips?game_id=dummy"))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(jsonString("payloads/correctTwitchClipsResponse.json", ClipsResponse.class)));
+
+        // when
+        ResponseEntity<ClipsResponse> response = testRestTemplate.exchange(
+                createURLWithPort(port),
+                HttpMethod.POST, new HttpEntity<>(clipsRequest), ClipsResponse.class);
+
+        // then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(readFromFile("payloads/correctTwitchClipsResponse.json", ClipsResponse.class));
+
+    }
 
     @ParameterizedTest
     @MethodSource("clipsErrorHandlingMethodSource")
@@ -55,32 +99,15 @@ class ClipsIntegrationTests {
                 .first(first)
                 .build();
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setBasicAuth("admin", "{noop}password");
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
-        HttpEntity<ClipsRequest> entity = new HttpEntity<>(clipsRequest, headers);
-
         // when
-
-        ResponseEntity<ErrorMessage> response = restTemplate.exchange(
+        ResponseEntity<ErrorMessage> response = testRestTemplate.exchange(
                 createURLWithPort(port),
-                HttpMethod.POST, entity, ErrorMessage.class);
+                HttpMethod.POST, new HttpEntity<>(clipsRequest), ErrorMessage.class);
 
         // then
         assertThat(response.getStatusCode()).isEqualTo(httpStatus);
         assertThat(Objects.requireNonNull(response.getBody()).message()).isEqualTo(new DefaultException(error).getLocalizedMessage());
     }
-
-    @Test
-    void testHealthCheck() {
-
-        ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:" + port + "/actuator/health", String.class);
-
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-
-    }
-
 
     private String createURLWithPort(int port) {
         return "http://localhost:" + port + URL;
@@ -91,4 +118,14 @@ class ClipsIntegrationTests {
                 arguments(null, null, null, "20", HttpStatus.BAD_REQUEST, Error.CLIPS_REQUIRED_MAIN_QUERY)
         );
     }
+
+    private static String jsonString(String path, Class neededClass) throws IOException {
+        return new ObjectMapper().writeValueAsString(new ObjectMapper().readValue(new ClassPathResource(path).getFile(), neededClass));
+    }
+
+    private static Object readFromFile(String path, Class neededClass) throws IOException {
+        return new ObjectMapper().readValue(new ClassPathResource(path).getFile(), neededClass);
+
+    }
+
 }
