@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -37,8 +39,11 @@ public class TwitchApiClient {
         headers.put("game_id", Collections.singletonList(clipsRequest.getGameId()));
         headers.setBearerAuth(twitchCredentialsConfiguration.getBearer());
 
+        Map<String, String> uriVariables = new HashMap<>();
+        uriVariables.put("game_id", clipsRequest.getGameId());
+
         HttpEntity<ClipsResponse> clipsResponse =
-                restTemplate.exchange(twitchApiConfiguration.getClipsEndpoint() + "?game_id="+clipsRequest.getGameId(), HttpMethod.GET,  new HttpEntity<>(headers), ClipsResponse.class);
+                restTemplate.exchange(twitchApiConfiguration.getClipsEndpoint(), HttpMethod.GET,  new HttpEntity<>(headers), ClipsResponse.class, uriVariables);
         return clipsResponse.getBody();
     }
 }
