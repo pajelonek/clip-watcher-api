@@ -66,7 +66,7 @@ class IntegrationTests {
                 .gameId("dummy")
                 .build();
 
-        mockServer.expect(ExpectedCount.manyTimes(), requestTo("https://api.twitch.tv/helix/clips?game_id=dummy"))
+        mockServer.expect(ExpectedCount.manyTimes(), requestTo("https://api.twitch.tv/helix/clips"))
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withStatus(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -110,7 +110,8 @@ class IntegrationTests {
 
     private static Stream<Arguments> clipsErrorHandlingMethodSource() {
         return Stream.of(
-                arguments(null, null, null, "20", HttpStatus.BAD_REQUEST, Error.CLIPS_REQUIRED_MAIN_QUERY)
+                arguments(null, null, null, "20", HttpStatus.BAD_REQUEST, Error.CLIPS_REQUIRED_MAIN_QUERY),
+                arguments("dummy1", "dummy2", "dummy3", null, HttpStatus.BAD_REQUEST, Error.CLIPS_MORE_THAN_ONE_MAIN_QUERY_PROVIDED)
         );
     }
 
