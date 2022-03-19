@@ -8,12 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 @Slf4j
@@ -36,14 +35,15 @@ public class TwitchApiClient {
 
         HttpHeaders headers = new HttpHeaders();
         headers.put("Client-Id", Collections.singletonList(twitchCredentialsConfiguration.getClientId()));
-        headers.put("game_id", Collections.singletonList(clipsRequest.getGameId()));
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         headers.setBearerAuth(twitchCredentialsConfiguration.getBearer());
 
-        Map<String, String> uriVariables = new HashMap<>();
-        uriVariables.put("game_id", clipsRequest.getGameId());
+        String urlTemplate = TwitchApiUrlCreator.createClipsUrl(clipsRequest, twitchApiConfiguration.getClipsEndpoint());
 
+        log.info("Sending request to twitch API to url {} with request {}", urlTemplate, clipsRequest);
         HttpEntity<ClipsResponse> clipsResponse =
-                restTemplate.exchange(twitchApiConfiguration.getClipsEndpoint(), HttpMethod.GET,  new HttpEntity<>(headers), ClipsResponse.class, uriVariables);
+                restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), ClipsResponse.class);
+        log.info("Twitch Api responded with " + clipsResponse.getBody());
         return clipsResponse.getBody();
     }
 }

@@ -66,7 +66,7 @@ class IntegrationTests {
                 .gameId("dummy")
                 .build();
 
-        mockServer.expect(ExpectedCount.manyTimes(), requestTo("https://api.twitch.tv/helix/clips"))
+        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/clips?game_id=dummy"))
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withStatus(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
