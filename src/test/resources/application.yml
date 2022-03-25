@@ -33,3 +33,6 @@ twitch:
     tokenEndpoint: https://id.twitch.tv/oauth2/token
     tokenGrantType: client_credentials
     gamesEndpoint: http://localhost
+
+cors:
+  origin: http://localhost

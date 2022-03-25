@@ -13,6 +13,3 @@ server:
 authentication:
   user: ${AUTH_USERNAME}
   password: ${AUTH_PASSWORD}
-
-cors:
-  origin: ${CORS_ORIGIN_URL}
