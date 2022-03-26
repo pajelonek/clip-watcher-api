@@ -1,4 +1,8 @@
 spring:
+  security:
+    basic:
+      enabled: false
+    enabled: false
   datasource:
     url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
@@ -7,3 +11,28 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+management:
+  health:
+    db:
+      enabled: false
+  security:
+    enabled: false
+
+security:
+  basic:
+    enabled: false
+
+twitch:
+  credentials:
+    clientId: ${TWITCH_CLIENT_ID}
+    clientSecret: ${TWITCH_CLIENT_SECRET}
+    bearer: ${TWITCH_CLIENT_BEARER}
+  api:
+    clipsEndpoint: https://api.twitch.tv/helix/clips
+    tokenEndpoint: https://id.twitch.tv/oauth2/token
+    tokenGrantType: client_credentials
+    gamesEndpoint: http://localhost
+
+cors:
+  origin: http://localhost

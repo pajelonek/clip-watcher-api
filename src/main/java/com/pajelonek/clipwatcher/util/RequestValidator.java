@@ -9,12 +9,28 @@ import org.springframework.stereotype.Component;
 public class RequestValidator {
 
     public void validateClipsRequest(ClipsRequest clipsRequest) {
-        int requiredParams = 0;
-        // todo tylko jeden główny parametr może być użyty
-
         if (clipsRequest.getGameId() == null && clipsRequest.getBroadcasterId() == null && clipsRequest.getClipId() == null) {
             throw new DefaultException(Error.CLIPS_REQUIRED_MAIN_QUERY);
         }
+
+        int requiredParams = 0;
+
+        if (clipsRequest.getGameId() != null) {
+            requiredParams++;
+        }
+
+        if (clipsRequest.getBroadcasterId() != null) {
+            requiredParams++;
+        }
+
+        if (clipsRequest.getClipId() != null) {
+            requiredParams++;
+        }
+
+        if (requiredParams > 1) {
+            throw new DefaultException(Error.CLIPS_MORE_THAN_ONE_MAIN_QUERY_PROVIDED);
+        }
+
 
 
         if (clipsRequest.getFirst() != null) {
