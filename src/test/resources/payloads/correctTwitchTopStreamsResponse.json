@@ -1,0 +1,386 @@
+{
+  "data": [
+    {
+      "id": "46015353677",
+      "user_id": "31239503",
+      "user_login": "esl_csgo",
+      "user_name": "ESL_CSGO",
+      "game_id": "32399",
+      "game_name": "Counter-Strike: Global Offensive",
+      "type": "live",
+      "title": "LIVE: NaVi vs x-kom AGO - ESL Pro League Season 15 - Group D",
+      "viewer_count": 65852,
+      "started_at": "2022-03-30T09:35:28Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_esl_csgo-{width}x{height}.jpg",
+      "tag_ids": [
+        "36a89a80-4fcd-4b74-b3d2-2c6fd9b30c95",
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "46015957357",
+      "user_id": "50160915",
+      "user_login": "dreamleague",
+      "user_name": "DreamLeague",
+      "game_id": "29595",
+      "game_name": "Dota 2",
+      "type": "live",
+      "title": "LIVE: Gaimin Gladiators vs Team Secret - DPC EUW Tour 2 - DreamLeague Season 17",
+      "viewer_count": 31631,
+      "started_at": "2022-03-30T11:54:16Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_dreamleague-{width}x{height}.jpg",
+      "tag_ids": [
+        "36a89a80-4fcd-4b74-b3d2-2c6fd9b30c95",
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "46015673661",
+      "user_id": "49207184",
+      "user_login": "fps_shaka",
+      "user_name": "fps_shaka",
+      "game_id": "516575",
+      "game_name": "VALORANT",
+      "type": "live",
+      "title": "va",
+      "viewer_count": 26478,
+      "started_at": "2022-03-30T10:56:26Z",
+      "language": "ja",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_fps_shaka-{width}x{height}.jpg",
+      "tag_ids": [
+        "6ba1d230-e52f-4d81-b1e0-41f25a8a9f5d",
+        "eaba0ad7-c4e1-4878-b37f-01308dbb65c8"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "45096740108",
+      "user_id": "65171890",
+      "user_login": "rainbow6",
+      "user_name": "Rainbow6",
+      "game_id": "460630",
+      "game_name": "Tom Clancy's Rainbow Six Siege",
+      "type": "live",
+      "title": "TALON vs. CYCLOPS AG // APAC North - Stage 1 - Playday #5",
+      "viewer_count": 23406,
+      "started_at": "2022-03-30T08:30:41Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_rainbow6-{width}x{height}.jpg",
+      "tag_ids": [
+        "36a89a80-4fcd-4b74-b3d2-2c6fd9b30c95",
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039",
+        "c2542d6d-cd10-4532-919b-3d19f30a768b"
+      ],
+      "is_mature": true
+    },
+    {
+      "id": "46016288125",
+      "user_id": "103825127",
+      "user_login": "hanryang1125",
+      "user_name": "풍월량",
+      "game_id": "1213311803",
+      "game_name": "The one who pulls out the sword will be crowned king",
+      "type": "live",
+      "title": "검뽑는게임      The one who pulls out the sword will be crowned king     풍월량",
+      "viewer_count": 21237,
+      "started_at": "2022-03-30T12:51:21Z",
+      "language": "ko",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_hanryang1125-{width}x{height}.jpg",
+      "tag_ids": [
+        "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "46015313277",
+      "user_id": "702754423",
+      "user_login": "vo_ine",
+      "user_name": "아이네_",
+      "game_id": "509658",
+      "game_name": "Just Chatting",
+      "type": "live",
+      "title": "싱크룸 찍먹",
+      "viewer_count": 18044,
+      "started_at": "2022-03-30T09:23:35Z",
+      "language": "ko",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_vo_ine-{width}x{height}.jpg",
+      "tag_ids": [
+        "52d7e4cc-633d-46f5-818c-bb59102d9549",
+        "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "40672624939",
+      "user_id": "36138196",
+      "user_login": "alexelcapo",
+      "user_name": "alexelcapo",
+      "game_id": "509658",
+      "game_name": "Just Chatting",
+      "type": "live",
+      "title": "Os cuento lo de ayer y Tiny Tina's Wonderlads patrocinado #ad",
+      "viewer_count": 16877,
+      "started_at": "2022-03-30T13:25:09Z",
+      "language": "es",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_alexelcapo-{width}x{height}.jpg",
+      "tag_ids": [
+        "d4bb9c58-2141-4881-bcdc-3fe0505457d1"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "46015505789",
+      "user_id": "181077473",
+      "user_login": "gaules",
+      "user_name": "Gaules",
+      "game_id": "32399",
+      "game_name": "Counter-Strike: Global Offensive",
+      "type": "live",
+      "title": "Heroic vs COL ESL Pro League S15 - Anúncio 18h - Siga @Gaules nas redes sociais",
+      "viewer_count": 15613,
+      "started_at": "2022-03-30T10:14:46Z",
+      "language": "pt",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_gaules-{width}x{height}.jpg",
+      "tag_ids": [
+        "39ee8140-901a-4762-bfca-8260dea1310f"
+      ],
+      "is_mature": true
+    },
+    {
+      "id": "46015622973",
+      "user_id": "49045679",
+      "user_login": "woowakgood",
+      "user_name": "우왁굳",
+      "game_id": "509658",
+      "game_name": "Just Chatting",
+      "type": "live",
+      "title": "띠용띠용",
+      "viewer_count": 15330,
+      "started_at": "2022-03-30T10:44:29Z",
+      "language": "ko",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_woowakgood-{width}x{height}.jpg",
+      "tag_ids": [
+        "ab2975e3-b9ca-4b1a-a93e-fb61a5d5c3a4"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "45097849260",
+      "user_id": "60056333",
+      "user_login": "tfue",
+      "user_name": "Tfue",
+      "game_id": "33214",
+      "game_name": "Fortnite",
+      "type": "live",
+      "title": "High Kill Duo vs Squads",
+      "viewer_count": 15224,
+      "started_at": "2022-03-30T13:15:08Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_tfue-{width}x{height}.jpg",
+      "tag_ids": [
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "45096675868",
+      "user_id": "23857542",
+      "user_login": "preachlfw",
+      "user_name": "Preachlfw",
+      "game_id": "24241",
+      "game_name": "Final Fantasy XIV Online",
+      "type": "live",
+      "title": "Endwalker MSQ Finale| FF Giveaways Later | !nordvpn !displate",
+      "viewer_count": 13881,
+      "started_at": "2022-03-30T08:05:31Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_preachlfw-{width}x{height}.jpg",
+      "tag_ids": [
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039"
+      ],
+      "is_mature": true
+    },
+    {
+      "id": "45097985468",
+      "user_id": "219431490",
+      "user_login": "jlamaru",
+      "user_name": "JLAmaru",
+      "game_id": "509658",
+      "game_name": "Just Chatting",
+      "type": "live",
+      "title": "Parlons …. - !eneba !displate",
+      "viewer_count": 13843,
+      "started_at": "2022-03-30T13:39:40Z",
+      "language": "fr",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_jlamaru-{width}x{height}.jpg",
+      "tag_ids": [
+        "6f655045-9989-4ef7-8f85-1edcec42d648"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "39613263849",
+      "user_id": "21841789",
+      "user_login": "nmplol",
+      "user_name": "Nmplol",
+      "game_id": "509658",
+      "game_name": "Just Chatting",
+      "type": "live",
+      "title": "BAN APPEALS - Ludwig TOURNAMENT CHAMPION",
+      "viewer_count": 13682,
+      "started_at": "2022-03-30T13:04:19Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_nmplol-{width}x{height}.jpg",
+      "tag_ids": [
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039",
+        "c1ea4496-4418-4a4f-bc30-083cfc6a616b",
+        "75057f79-cad6-4934-b129-67b1ea64e835",
+        "481ba9ce-8101-4a42-b026-b6aa200fdd8c",
+        "d5501bf8-6e6d-4242-9642-cdedcb684859"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "39613160297",
+      "user_id": "26610234",
+      "user_login": "cohhcarnage",
+      "user_name": "CohhCarnage",
+      "game_id": "515498",
+      "game_name": "Weird West",
+      "type": "live",
+      "title": "Weird West BEGINS! (The !BigRun) - !StudioTour - Creator Code: COHH (#EpicPartner) - !PC",
+      "viewer_count": 13515,
+      "started_at": "2022-03-30T11:46:06Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_cohhcarnage-{width}x{height}.jpg",
+      "tag_ids": [
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039",
+        "1277e554-f8c9-4795-a475-27418d7bd111",
+        "eaba0ad7-c4e1-4878-b37f-01308dbb65c8",
+        "96b6073f-450d-4248-8ed4-988e28f3f759",
+        "7e329e2d-60a1-4a87-9e59-41272c57ab42"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "46016237341",
+      "user_id": "103268673",
+      "user_login": "gmhikaru",
+      "user_name": "GMHikaru",
+      "game_id": "743",
+      "game_name": "Chess",
+      "type": "live",
+      "title": "Grand Prix Semifinals vs Shaq! | !candidates !tiktok !hosts",
+      "viewer_count": 11929,
+      "started_at": "2022-03-30T12:42:19Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_gmhikaru-{width}x{height}.jpg",
+      "tag_ids": [
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039",
+        "e90b5f6e-4c6e-4003-885b-4d0d5adeb580"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "46015444557",
+      "user_id": "478171619",
+      "user_login": "elevensportstw2",
+      "user_name": "味全龍",
+      "game_id": "518203",
+      "game_name": "Sports",
+      "type": "live",
+      "title": "【中職熱身賽】味全龍vs中信兄弟 3/30(三)  訂閱滿百送味全小禮",
+      "viewer_count": 11294,
+      "started_at": "2022-03-30T10:00:15Z",
+      "language": "zh",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_elevensportstw2-{width}x{height}.jpg",
+      "tag_ids": [
+        "74c92063-a389-4fd2-8460-b1bb82b04ec7"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "45096783900",
+      "user_id": "50597026",
+      "user_login": "ponce",
+      "user_name": "Ponce",
+      "game_id": "496321134",
+      "game_name": "Kirby and the Forgotten Land",
+      "type": "live",
+      "title": "PONCE - P'tite aprem avec Kirby la giga boule rose [20h : !FFS Mario Kart] | !rs !boutique",
+      "viewer_count": 10871,
+      "started_at": "2022-03-30T08:47:13Z",
+      "language": "fr",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_ponce-{width}x{height}.jpg",
+      "tag_ids": [
+        "6f655045-9989-4ef7-8f85-1edcec42d648"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "40672304683",
+      "user_id": "219069796",
+      "user_login": "jackeyy",
+      "user_name": "Jackeyy",
+      "game_id": "32982",
+      "game_name": "Grand Theft Auto V",
+      "type": "live",
+      "title": "อยากรู้เสมอมา",
+      "viewer_count": 10733,
+      "started_at": "2022-03-30T11:03:23Z",
+      "language": "th",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_jackeyy-{width}x{height}.jpg",
+      "tag_ids": [
+        "f19c7524-c18d-41af-9f39-034c8d0b0fee"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "40671930475",
+      "user_id": "160504245",
+      "user_login": "39daph",
+      "user_name": "39daph",
+      "game_id": "65876",
+      "game_name": "Cyberpunk 2077",
+      "type": "live",
+      "title": "cyberpunk for the first time",
+      "viewer_count": 10205,
+      "started_at": "2022-03-30T07:49:46Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_39daph-{width}x{height}.jpg",
+      "tag_ids": [
+        "c1ea4496-4418-4a4f-bc30-083cfc6a616b",
+        "396aee63-bb8a-43c4-95da-98fca08e144b",
+        "6ea6bca4-4712-4ab9-a906-e3336a9d8039",
+        "0cef8341-8c67-481f-95a8-325932a6699c",
+        "2de58b90-39a2-4d02-b57e-bd2d1899f4c3"
+      ],
+      "is_mature": false
+    },
+    {
+      "id": "45097819372",
+      "user_id": "779811748",
+      "user_login": "k1ngpnz",
+      "user_name": "k1ngpnz",
+      "game_id": "29452",
+      "game_name": "Virtual Casino",
+      "type": "live",
+      "title": "🔥 10 часов Stake | Ловим бонуски до конца баланса (Открытие в конце баланса) | !tg !donate !stake 🔥",
+      "viewer_count": 10008,
+      "started_at": "2022-03-30T13:11:01Z",
+      "language": "ru",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_k1ngpnz-{width}x{height}.jpg",
+      "tag_ids": [
+        "0569b171-2a2b-476e-a596-5bdfb45a1327"
+      ],
+      "is_mature": false
+    }
+  ],
+  "pagination": {
+    "cursor": "eyJiIjp7IkN1cnNvciI6ImV5SnpJam8yTlRnMU1pNDJOVEEyTWpBNE5qWTVOU3dpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqb3hNREF3T0M0eE5ETTBOak15TnpJMk9UZ3NJbVFpT21aaGJITmxMQ0owSWpwMGNuVmxmUT09In19"
+  }
+}

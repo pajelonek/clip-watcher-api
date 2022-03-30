@@ -1,8 +1,8 @@
 package util;
 
 import com.pajelonek.clipwatcher.domain.error.DefaultException;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
-import com.pajelonek.clipwatcher.util.RequestValidator;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
+import com.pajelonek.clipwatcher.util.ClipsRequestValidator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,11 +11,11 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ActiveProfiles("LOCAL")
-@SpringBootTest(classes = {RequestValidator.class})
-class RequestValidatorTest {
+@SpringBootTest(classes = {ClipsRequestValidator.class})
+class ClipsRequestValidatorTest {
 
     @Autowired
-    private RequestValidator validator;
+    private ClipsRequestValidator validator;
 
     @Test
     void validatorShouldThrowRequiredMainQueryException() {

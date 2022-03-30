@@ -1,6 +1,7 @@
 package com.pajelonek.clipwatcher.service.twitch.client;
 
-import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
+import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesRequest;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -20,6 +21,35 @@ public class TwitchApiUrlCreator {
                 .queryParamIfPresent("first", Optional.ofNullable(clipsRequest.getFirst()))
                 .queryParamIfPresent("started_at", Optional.ofNullable(clipsRequest.getStartedAt()))
                 .queryParamIfPresent("ended_at", Optional.ofNullable(clipsRequest.getEndedAt()))
+                .toUriString();
+    }
+
+    public static String createTopCategoriesUrl(CategoriesRequest categoriesRequest, String categoriesEndpoint) {
+        log.info("Creating url for /top/categories endpoint {} with request {}", categoriesEndpoint, categoriesRequest);
+        return UriComponentsBuilder.fromHttpUrl(categoriesEndpoint)
+                .queryParamIfPresent("after", Optional.ofNullable(categoriesRequest.getAfter()))
+                .queryParamIfPresent("before", Optional.ofNullable(categoriesRequest.getBefore()))
+                .queryParamIfPresent("first", Optional.ofNullable(categoriesRequest.getFirst()))
+                .toUriString();
+    }
+
+    public static String createSearchCategoriesUrl(String query, String categoriesEndpoint) {
+        log.info("Creating url for /top/categories endpoint {} with query {}", categoriesEndpoint, query);
+        return UriComponentsBuilder.fromHttpUrl(categoriesEndpoint)
+                .queryParamIfPresent("query", Optional.ofNullable(query))
+                .toUriString();
+    }
+
+    public static String createTopStreamUrl(String topStreamsEndpoint) {
+        log.info("Creating url for /top/streams endpoint {}", topStreamsEndpoint);
+        return UriComponentsBuilder.fromHttpUrl(topStreamsEndpoint)
+                .toUriString();
+    }
+
+    public static String createSearchChannelsUrl(String query, String channelsEndpoint) {
+        log.info("Creating url for /search/channels endpoint {} with query {}", channelsEndpoint, query);
+        return UriComponentsBuilder.fromHttpUrl(channelsEndpoint)
+                .queryParamIfPresent("query", Optional.ofNullable(query))
                 .toUriString();
     }
 }

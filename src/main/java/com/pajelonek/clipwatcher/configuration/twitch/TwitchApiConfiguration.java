@@ -15,6 +15,14 @@ public class TwitchApiConfiguration {
 
     private String clipsEndpoint;
 
+    private String topStreamsEndpoint;
+
+    private String topCategoriesEndpoint;
+
+    private String searchCategoriesEndpoint;
+
+    private String searchChannelsEndpoint;
+
     private String tokenEndpoint;
 
     private String tokenGrantType;

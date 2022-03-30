@@ -2,8 +2,12 @@ package com.pajelonek.clipwatcher.service.twitch.client;
 
 import com.pajelonek.clipwatcher.configuration.twitch.TwitchApiConfiguration;
 import com.pajelonek.clipwatcher.configuration.twitch.TwitchCredentialsConfiguration;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsResponse;
+import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesRequest;
+import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesResponse;
+import com.pajelonek.clipwatcher.domain.twitch.channels.ChannelsResponse;
+import com.pajelonek.clipwatcher.domain.twitch.streams.TopStreamsResponse;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -45,5 +49,69 @@ public class TwitchApiClient {
                 restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), ClipsResponse.class);
         log.info("Twitch Api responded with " + clipsResponse.getBody());
         return clipsResponse.getBody();
+    }
+
+    public TopStreamsResponse topStreams() {
+        log.info("Calling twitch api for endpoint /top/streams");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.put("Client-Id", Collections.singletonList(twitchCredentialsConfiguration.getClientId()));
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+        headers.setBearerAuth(twitchCredentialsConfiguration.getBearer());
+
+        String urlTemplate = TwitchApiUrlCreator.createTopStreamUrl(twitchApiConfiguration.getTopStreamsEndpoint());
+        log.info("Sending request to twitch API to url {}", urlTemplate);
+        HttpEntity<TopStreamsResponse> topStreamsResponse =
+                restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), TopStreamsResponse.class);
+        log.info("Twitch Api responded with " + topStreamsResponse.getBody());
+        return topStreamsResponse.getBody();
+    }
+
+    public CategoriesResponse topCategories(CategoriesRequest categoriesRequest) {
+        log.info("Calling twitch api for endpoint /top/categories");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.put("Client-Id", Collections.singletonList(twitchCredentialsConfiguration.getClientId()));
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+        headers.setBearerAuth(twitchCredentialsConfiguration.getBearer());
+
+        String urlTemplate = TwitchApiUrlCreator.createTopCategoriesUrl(categoriesRequest, twitchApiConfiguration.getTopCategoriesEndpoint());
+        log.info("Sending request to twitch API to url {}", urlTemplate);
+        HttpEntity<CategoriesResponse> topCategoriesResponse =
+                restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), CategoriesResponse.class);
+        log.info("Twitch Api responded with " + topCategoriesResponse.getBody());
+        return topCategoriesResponse.getBody();
+    }
+
+    public CategoriesResponse searchCategories(String query) {
+        log.info("Calling twitch api for endpoint /categories/search");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.put("Client-Id", Collections.singletonList(twitchCredentialsConfiguration.getClientId()));
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+        headers.setBearerAuth(twitchCredentialsConfiguration.getBearer());
+
+        String urlTemplate = TwitchApiUrlCreator.createSearchCategoriesUrl(query, twitchApiConfiguration.getSearchCategoriesEndpoint());
+        log.info("Sending request to twitch API to url {}", urlTemplate);
+        HttpEntity<CategoriesResponse> searchCategoriesResponse =
+                restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), CategoriesResponse.class);
+        log.info("Twitch Api responded with " + searchCategoriesResponse.getBody());
+        return searchCategoriesResponse.getBody();
+    }
+
+    public ChannelsResponse searchChannels(String query) {
+        log.info("Calling twitch api for endpoint /channels/search");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.put("Client-Id", Collections.singletonList(twitchCredentialsConfiguration.getClientId()));
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+        headers.setBearerAuth(twitchCredentialsConfiguration.getBearer());
+
+        String urlTemplate = TwitchApiUrlCreator.createSearchChannelsUrl(query, twitchApiConfiguration.getSearchChannelsEndpoint());
+        log.info("Sending request to twitch API to url {}", urlTemplate);
+        HttpEntity<ChannelsResponse> searchChannelsResponse =
+                restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), ChannelsResponse.class);
+        log.info("Twitch Api responded with " + searchChannelsResponse.getBody());
+        return searchChannelsResponse.getBody();
     }
 }

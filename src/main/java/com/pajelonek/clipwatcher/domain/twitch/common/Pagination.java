@@ -1,4 +1,4 @@
-package com.pajelonek.clipwatcher.domain.twitch;
+package com.pajelonek.clipwatcher.domain.twitch.common;
 
 import lombok.*;
 

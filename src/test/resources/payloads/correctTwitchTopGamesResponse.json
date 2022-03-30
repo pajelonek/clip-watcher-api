@@ -1,0 +1,107 @@
+{
+  "data": [
+    {
+      "id": "509658",
+      "name": "Just Chatting",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/509658-{width}x{height}.jpg"
+    },
+    {
+      "id": "516575",
+      "name": "VALORANT",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/516575-{width}x{height}.jpg"
+    },
+    {
+      "id": "21779",
+      "name": "League of Legends",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/21779-{width}x{height}.jpg"
+    },
+    {
+      "id": "32399",
+      "name": "Counter-Strike: Global Offensive",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/32399_IGDB-{width}x{height}.jpg"
+    },
+    {
+      "id": "32982",
+      "name": "Grand Theft Auto V",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/32982_IGDB-{width}x{height}.jpg"
+    },
+    {
+      "id": "33214",
+      "name": "Fortnite",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg"
+    },
+    {
+      "id": "29595",
+      "name": "Dota 2",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/29595-{width}x{height}.jpg"
+    },
+    {
+      "id": "511224",
+      "name": "Apex Legends",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/511224-{width}x{height}.jpg"
+    },
+    {
+      "id": "512953",
+      "name": "Elden Ring",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/512953_IGDB-{width}x{height}.jpg"
+    },
+    {
+      "id": "490100",
+      "name": "Lost Ark",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/490100-{width}x{height}.jpg"
+    },
+    {
+      "id": "18122",
+      "name": "World of Warcraft",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/18122-{width}x{height}.jpg"
+    },
+    {
+      "id": "513181",
+      "name": "Genshin Impact",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/513181-{width}x{height}.jpg"
+    },
+    {
+      "id": "512710",
+      "name": "Call of Duty: Warzone",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/512710-{width}x{height}.jpg"
+    },
+    {
+      "id": "138585",
+      "name": "Hearthstone",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/138585_IGDB-{width}x{height}.jpg"
+    },
+    {
+      "id": "460630",
+      "name": "Tom Clancy's Rainbow Six Siege",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/460630-{width}x{height}.jpg"
+    },
+    {
+      "id": "27471",
+      "name": "Minecraft",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/27471_IGDB-{width}x{height}.jpg"
+    },
+    {
+      "id": "493057",
+      "name": "PUBG: BATTLEGROUNDS",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/493057-{width}x{height}.jpg"
+    },
+    {
+      "id": "491487",
+      "name": "Dead by Daylight",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/491487-{width}x{height}.jpg"
+    },
+    {
+      "id": "513143",
+      "name": "Teamfight Tactics",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/513143-{width}x{height}.jpg"
+    },
+    {
+      "id": "26936",
+      "name": "Music",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/26936-{width}x{height}.jpg"
+    }
+  ],
+  "pagination": {
+    "cursor": "eyJzIjoyMCwiZCI6ZmFsc2UsInQiOnRydWV9"
+  }
+}

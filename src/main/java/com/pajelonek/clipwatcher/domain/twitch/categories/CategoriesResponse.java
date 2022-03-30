@@ -1,5 +1,6 @@
-package com.pajelonek.clipwatcher.domain.twitch;
+package com.pajelonek.clipwatcher.domain.twitch.categories;
 
+import com.pajelonek.clipwatcher.domain.twitch.common.Pagination;
 import lombok.*;
 
 import java.util.List;
@@ -9,15 +10,15 @@ import java.util.List;
 @Data
 @Getter
 @Setter
-public class ClipsResponse {
+public class CategoriesResponse {
 
-    private List<Clip> data;
+    private List<Category> data;
 
     private Pagination pagination;
 
     @Override
     public String toString() {
-        return "ClipsResponse{" +
+        return "TopCategoriesResponse{" +
                 "size of data=" + data.size() +
                 ", pagination=" + pagination +
                 '}';

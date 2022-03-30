@@ -13,6 +13,10 @@ twitch:
     bearer: ${TWITCH_CLIENT_BEARER}
   api:
     clipsEndpoint: https://api.twitch.tv/helix/clips
+    topStreamsEndpoint: https://api.twitch.tv/helix/streams
+    topCategoriesEndpoint: https://api.twitch.tv/helix/games/top
+    searchCategoriesEndpoint: https://api.twitch.tv/helix/search/categories
+    searchChannelsEndpoint: https://api.twitch.tv/helix/search/channels
     tokenEndpoint: https://id.twitch.tv/oauth2/token
     tokenGrantType: client_credentials
     gamesEndpoint: http://localhost

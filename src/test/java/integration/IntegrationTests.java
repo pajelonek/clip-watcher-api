@@ -5,8 +5,12 @@ import com.pajelonek.clipwatcher.ClipWatcherApplication;
 import com.pajelonek.clipwatcher.domain.error.DefaultException;
 import com.pajelonek.clipwatcher.domain.error.Error;
 import com.pajelonek.clipwatcher.domain.error.ErrorMessage;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsResponse;
+import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesRequest;
+import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesResponse;
+import com.pajelonek.clipwatcher.domain.twitch.channels.ChannelsResponse;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsResponse;
+import com.pajelonek.clipwatcher.domain.twitch.streams.TopStreamsResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -48,7 +52,16 @@ class IntegrationTests {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String URL = "/clips";
+    private static final String clipsURL = "/clips";
+
+    private static final String topStreamsURL = "/streams/top";
+
+    private static final String topGamesURL = "/categories/top";
+
+    private static final String searchGamesURL = "/categories/search";
+
+    private static final String searchChannelsURL = "/channels/search";
+
 
     private MockRestServiceServer mockServer;
 
@@ -74,12 +87,100 @@ class IntegrationTests {
 
         // when
         ResponseEntity<ClipsResponse> response = testRestTemplate.exchange(
-                createURLWithPort(port),
+                createClipsURLWithPort(port),
                 HttpMethod.POST, new HttpEntity<>(clipsRequest), ClipsResponse.class);
 
         // then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isEqualTo(readFromFile("payloads/correctTwitchClipsResponse.json", ClipsResponse.class));
+
+    }
+
+    @Test
+    void testTopStreamsResponse() throws IOException {
+        // given
+        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/streams"))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(jsonString("payloads/correctTwitchTopStreamsResponse.json", TopStreamsResponse.class)));
+
+        // when
+        ResponseEntity<TopStreamsResponse> response = testRestTemplate.exchange(
+                createTopStreamsURLWithPort(port),
+                HttpMethod.GET, null, TopStreamsResponse.class);
+
+        // then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(readFromFile("payloads/correctTwitchTopStreamsResponse.json", TopStreamsResponse.class));
+
+    }
+
+    @Test
+    void testTopGamesResponse() throws IOException {
+        // given
+        CategoriesRequest categoriesRequest = CategoriesRequest.builder()
+                .first("20")
+                .build();
+
+        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/games/top?first=20"))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(jsonString("payloads/correctTwitchTopGamesResponse.json", CategoriesResponse.class)));
+
+        // when
+        ResponseEntity<CategoriesResponse> response = testRestTemplate.exchange(
+                createTopGamesURLWithPort(port),
+                HttpMethod.POST, new HttpEntity<>(categoriesRequest), CategoriesResponse.class);
+
+        // then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(readFromFile("payloads/correctTwitchTopGamesResponse.json", CategoriesResponse.class));
+
+    }
+
+    @Test
+    void testSearchCategoriesResponse() throws IOException {
+        // given
+        String query = "league";
+
+        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/search/categories?query=" + query))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(jsonString("payloads/correctTwitchSearchGamesResponseQueryLeague.json", CategoriesResponse.class)));
+
+        // when
+        ResponseEntity<CategoriesResponse> response = testRestTemplate.exchange(
+                createSearchGamesURLWithPort(port, query),
+                HttpMethod.GET, null, CategoriesResponse.class);
+
+        // then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(readFromFile("payloads/correctTwitchSearchGamesResponseQueryLeague.json", CategoriesResponse.class));
+
+    }
+
+    @Test
+    void testSearchChannelsResponse() throws IOException {
+        // given
+        String query = "h2p";
+
+        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/search/channels?query=" + query))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(jsonString("payloads/correctTwitchSearchChannelsResponseQueryH2p.json", ChannelsResponse.class)));
+
+        // when
+        ResponseEntity<ChannelsResponse> response = testRestTemplate.exchange(
+                createSearchChannelsURLWithPort(port, query),
+                HttpMethod.GET, null, ChannelsResponse.class);
+
+        // then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEqualTo(readFromFile("payloads/correctTwitchSearchChannelsResponseQueryH2p.json", ChannelsResponse.class));
 
     }
 
@@ -96,7 +197,7 @@ class IntegrationTests {
 
         // when
         ResponseEntity<ErrorMessage> response = testRestTemplate.exchange(
-                createURLWithPort(port),
+                createClipsURLWithPort(port),
                 HttpMethod.POST, new HttpEntity<>(clipsRequest), ErrorMessage.class);
 
         // then
@@ -104,8 +205,24 @@ class IntegrationTests {
         assertThat(Objects.requireNonNull(response.getBody()).message()).isEqualTo(new DefaultException(error).getLocalizedMessage());
     }
 
-    private String createURLWithPort(int port) {
-        return "http://localhost:" + port + URL;
+    private String createClipsURLWithPort(int port) {
+        return "http://localhost:" + port + clipsURL;
+    }
+
+    private String createTopStreamsURLWithPort(int port) {
+        return "http://localhost:" + port + topStreamsURL;
+    }
+
+    private String createTopGamesURLWithPort(int port) {
+        return "http://localhost:" + port + topGamesURL;
+    }
+
+    private String createSearchGamesURLWithPort(int port, String query) {
+        return "http://localhost:" + port + searchGamesURL + "?query=" + query;
+    }
+
+    private String createSearchChannelsURLWithPort(int port, String query) {
+        return "http://localhost:" + port + searchChannelsURL + "?query=" + query;
     }
 
     private static Stream<Arguments> clipsErrorHandlingMethodSource() {

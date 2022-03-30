@@ -2,11 +2,11 @@ package com.pajelonek.clipwatcher.util;
 
 import com.pajelonek.clipwatcher.domain.error.DefaultException;
 import com.pajelonek.clipwatcher.domain.error.Error;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RequestValidator {
+public class ClipsRequestValidator {
 
     public void validateClipsRequest(ClipsRequest clipsRequest) {
         if (clipsRequest.getGameId() == null && clipsRequest.getBroadcasterId() == null && clipsRequest.getClipId() == null) {

@@ -1,12 +1,11 @@
 package com.pajelonek.clipwatcher.service.twitch.client;
 
-import com.pajelonek.clipwatcher.domain.error.Error;
-import com.pajelonek.clipwatcher.domain.twitch.ClipsRequest;
+import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.runner.RunWith;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.stream.Stream;
@@ -22,6 +21,19 @@ class TwitchApiUrlCreatorTest {
     void testCreateClipsUrl(ClipsRequest clipsRequest, String twitchApiUrl, String expected){
         // given & when
         String createdUrl = TwitchApiUrlCreator.createClipsUrl(clipsRequest, twitchApiUrl);
+
+        // then
+        assertThat(createdUrl).isEqualTo(expected);
+    }
+
+    @Test
+    void testCreateTopStreamsUrl(){
+        // given
+        String twitchApiUrl = "http://localhost/top/games";
+        String expected = "http://localhost/top/games";
+
+        // when
+        String createdUrl = TwitchApiUrlCreator.createTopStreamUrl(twitchApiUrl);
 
         // then
         assertThat(createdUrl).isEqualTo(expected);
