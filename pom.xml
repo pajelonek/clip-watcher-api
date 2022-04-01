@@ -20,7 +20,7 @@
         <spring.boot.version>2.6.6</spring.boot.version>
         <spring.security.version>5.6.2</spring.security.version>
         <lombok.version>1.18.22</lombok.version>
-        <sqlserver.jdbc.version>10.2.0.jre17</sqlserver.jdbc.version>
+        <sqlserver.jdbc.version>10.2.0-SNAPSHOT.jre8-preview</sqlserver.jdbc.version>
         <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
         <mybatis.version>2.2.2</mybatis.version>
         <junit.version>4.13.2</junit.version>
