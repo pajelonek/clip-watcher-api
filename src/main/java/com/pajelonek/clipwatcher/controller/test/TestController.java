@@ -2,7 +2,6 @@ package com.pajelonek.clipwatcher.controller.test;
 
 import com.pajelonek.clipwatcher.mybatis.EmployeeMapper;
 import com.pajelonek.clipwatcher.domain.test.Employee;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
