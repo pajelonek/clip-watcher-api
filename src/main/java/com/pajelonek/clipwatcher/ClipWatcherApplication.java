@@ -28,9 +28,6 @@ public class ClipWatcherApplication {
 		return restTemplate;
 	}
 
-	@Value("${cors.origin}")
-	private String corsOrigin;
-
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
