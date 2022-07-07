@@ -12,6 +12,9 @@ security:
   basic:
     enabled: false
 
+server:
+  port: 8081
+
 twitch:
   credentials:
     clientId: ${TWITCH_CLIENT_ID}
