@@ -11,7 +11,7 @@
 
     <groupId>com.pajelonek</groupId>
     <artifactId>clipwatcher</artifactId>
-    <version>0.0.22-SNAPSHOT</version>
+    <version>0.0.23-SNAPSHOT</version>
     <name>ClipWatcher-API</name>
     <description>Backend for clip watcher application</description>
 
@@ -20,14 +20,9 @@
         <spring.boot.version>2.6.7</spring.boot.version>
         <spring.security.version>5.6.2</spring.security.version>
         <lombok.version>1.18.22</lombok.version>
-        <sqlserver.jdbc.version>10.2.0-SNAPSHOT.jre8-preview</sqlserver.jdbc.version>
-        <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
-        <mybatis.version>2.2.2</mybatis.version>
         <junit.version>4.13.2</junit.version>
         <junit.vintage.version>5.8.2</junit.vintage.version>
-        <h2.version>2.1.210</h2.version>
         <spring.cloud.starter.stub.version>3.1.1</spring.cloud.starter.stub.version>
-
 
         <!-- Sonar Properties -->
         <sonar.organization>pajelonek</sonar.organization>
@@ -48,11 +43,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
@@ -65,22 +55,6 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>${sqlserver.jdbc.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.connector.java.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jacoco</groupId>
@@ -116,12 +90,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring.boot.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
