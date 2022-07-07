@@ -48,8 +48,11 @@ public class TwitchApiUrlCreator {
 
     public static String createSearchChannelsUrl(String query, String channelsEndpoint) {
         log.info("Creating url for /search/channels endpoint {} with query {}", channelsEndpoint, query);
+        if (Optional.ofNullable(query).isEmpty()) {
+            query = String.valueOf(' ');
+        }
         return UriComponentsBuilder.fromHttpUrl(channelsEndpoint)
-                .queryParamIfPresent("query", Optional.ofNullable(query))
+                .queryParamIfPresent("query", Optional.of(query))
                 .toUriString();
     }
 }

@@ -1,15 +1,3 @@
-spring:
-  datasource:
-    url: jdbc:sqlserver://${MYSQL_URL}:1433;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;databaseName=${MYSQL_DB_NAME};
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-server:
-  port: 8080
-
 authentication:
   user: ${AUTH_USERNAME}
   password: ${AUTH_PASSWORD}

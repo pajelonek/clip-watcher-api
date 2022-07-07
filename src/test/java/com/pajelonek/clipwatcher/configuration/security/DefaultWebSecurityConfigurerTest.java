@@ -21,22 +21,17 @@ public class DefaultWebSecurityConfigurerTest {
     private TestRestTemplate template;
 
     @Test
-    public void givenRequestWithWrongCredentials_shouldReturn401() {
-        ResponseEntity<String> result = template.withBasicAuth("dummyUser", "dummyPassword")
-                .getForEntity("/demo/test", String.class);
+    public void givenRequestWithoutCredentials_shouldReturn200() {
+        ResponseEntity<String> result = template
+                .getForEntity("/actuator/health", String.class);
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test
     public void givenRequestWithCorrectCredentials_shouldReturn200() {
         ResponseEntity<String> result = template.withBasicAuth("user", "password")
-                .getForEntity("/demo/test", String.class);
+                .getForEntity("/actuator/health", String.class);
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
-    @Test
-    public void givenRequestWithoutBasicAuth_shouldReturn401() {
-        ResponseEntity<String> result = template.getForEntity("/demo/test", String.class);
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-    }
 }

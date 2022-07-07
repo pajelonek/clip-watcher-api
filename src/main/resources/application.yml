@@ -1,10 +1,9 @@
 spring:
   profiles:
     default: DEV
-  jpa:
-    hibernate:
-      ddl-auto: none
 
+server:
+  port: 8080
 
 twitch:
   credentials:

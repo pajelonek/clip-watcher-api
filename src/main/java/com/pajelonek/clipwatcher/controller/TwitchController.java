@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class TwitchController {
 
@@ -55,5 +56,10 @@ public class TwitchController {
     @GetMapping(value = "/channels/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ChannelsResponse> searchChannels(@RequestParam String query) {
         return channelsService.searchChannel(query);
+    }
+
+    @GetMapping(value = "/health", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("{'status' : 'up'}");
     }
 }
