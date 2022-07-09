@@ -7,6 +7,7 @@ import lombok.*;
 @Data
 @Getter
 @Setter
+@Builder
 public class Pagination {
 
     @NonNull

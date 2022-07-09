@@ -1,6 +1,5 @@
 package com.pajelonek.clipwatcher.domain.twitch.channels;
 
-import com.pajelonek.clipwatcher.domain.twitch.categories.Category;
 import com.pajelonek.clipwatcher.domain.twitch.common.Pagination;
 import lombok.*;
 
@@ -11,6 +10,7 @@ import java.util.List;
 @Data
 @Getter
 @Setter
+@Builder
 public class ChannelsResponse {
 
     private List<Channel> data;

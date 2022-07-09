@@ -1,6 +1,6 @@
 package com.pajelonek.clipwatcher;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.NonNull;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -32,7 +32,7 @@ public class ClipWatcherApplication {
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
-			public void addCorsMappings(CorsRegistry registry) {
+			public void addCorsMappings(@NonNull CorsRegistry registry) {
 				registry.addMapping("/*")
 						.allowedOrigins("*");
 			}

@@ -10,13 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class CategoriesService {
-
-    private final TwitchApiClient twitchApiClient;
-
-    public CategoriesService(TwitchApiClient twitchApiClient) {
-        this.twitchApiClient = twitchApiClient;
-    }
+public record CategoriesService(TwitchApiClient twitchApiClient) {
 
     public ResponseEntity<CategoriesResponse> topCategories(CategoriesRequest categoriesRequest) {
         log.info("Incoming POST request for /category/top");

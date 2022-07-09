@@ -9,13 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class StreamsService {
-
-    private final TwitchApiClient twitchApiClient;
-
-    public StreamsService(TwitchApiClient twitchApiClient) {
-        this.twitchApiClient = twitchApiClient;
-    }
+public record StreamsService(TwitchApiClient twitchApiClient) {
 
     public ResponseEntity<TopStreamsResponse> topStreams() {
         log.info("Incoming GET request for /top/games.");

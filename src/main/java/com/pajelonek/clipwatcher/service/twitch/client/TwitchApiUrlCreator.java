@@ -10,6 +10,10 @@ import java.util.Optional;
 @Slf4j
 public class TwitchApiUrlCreator {
 
+    private TwitchApiUrlCreator() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static String createClipsUrl(ClipsRequest clipsRequest, String clipsEndpoint) {
         log.info("Creating url for /clips endpoint {} with request {}", clipsEndpoint, clipsRequest);
         return UriComponentsBuilder.fromHttpUrl(clipsEndpoint)

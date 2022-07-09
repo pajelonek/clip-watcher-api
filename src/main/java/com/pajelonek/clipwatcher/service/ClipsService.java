@@ -11,16 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class ClipsService {
-
-    private final TwitchApiClient twitchApiClient;
-
-    private final ClipsRequestValidator clipsRequestValidator;
-
-    public ClipsService(TwitchApiClient twitchApiClient, ClipsRequestValidator clipsRequestValidator) {
-        this.twitchApiClient = twitchApiClient;
-        this.clipsRequestValidator = clipsRequestValidator;
-    }
+public record ClipsService(TwitchApiClient twitchApiClient, ClipsRequestValidator clipsRequestValidator) {
 
     public ResponseEntity<ClipsResponse> clips(ClipsRequest clipsRequest) {
         log.info("Incoming POST request for /clips with request: " + clipsRequest);
