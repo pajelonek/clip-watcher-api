@@ -47,6 +47,7 @@ public class TwitchApiUrlCreator {
     public static String createTopStreamUrl(String topStreamsEndpoint) {
         log.info("Creating url for /top/streams endpoint {}", topStreamsEndpoint);
         return UriComponentsBuilder.fromHttpUrl(topStreamsEndpoint)
+                .queryParamIfPresent("first", Optional.of(10))
                 .toUriString();
     }
 
