@@ -17,9 +17,8 @@ server:
 
 twitch:
   credentials:
-    clientId: ${TWITCH_CLIENT_ID}
-    clientSecret: ${TWITCH_CLIENT_SECRET}
-    bearer: ${TWITCH_CLIENT_BEARER}
+    clientId: dummyId
+    clientSecret: dummySecret
   api:
     clipsEndpoint: https://api.twitch.tv/helix/clips
     topStreamsEndpoint: https://api.twitch.tv/helix/streams
@@ -29,6 +28,11 @@ twitch:
     tokenEndpoint: https://id.twitch.tv/oauth2/token
     tokenGrantType: client_credentials
     gamesEndpoint: http://localhost
+  auth:
+    scheduler:
+      enabled: false
+      interval:
+        inMillis: 2000
 
 cors:
   origin: http://localhost

@@ -23,25 +23,25 @@ public class CustomWebSecurityConfigurerTest {
     @Test
     public void givenRequestWithWrongCredentials_shouldReturn401() {
         ResponseEntity<String> result = template.withBasicAuth("dummyUser", "dummyPassword")
-                .getForEntity("/health", String.class);
+                .getForEntity("/clips", String.class);
         assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
     }
 
     @Test
-    public void givenRequestWithCorrectCredentials_shouldReturn200() {
+    public void givenRequestWithCorrectCredentials_shouldReturnMethodNotAllowed() {
         ResponseEntity<String> result = template.withBasicAuth("user", "password")
-                .getForEntity("/health", String.class);
+                .getForEntity("/clips", String.class);
+        assertEquals(HttpStatus.METHOD_NOT_ALLOWED, result.getStatusCode());
+    }
+
+    @Test
+    public void givenRequestToAppHealth_shouldReturn200() {
+        ResponseEntity<String> result = template.getForEntity("/health", String.class);
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }
 
     @Test
-    public void givenRequestWithoutBasicAuth_shouldReturn401() {
-        ResponseEntity<String> result = template.getForEntity("/health", String.class);
-        assertEquals(HttpStatus.UNAUTHORIZED, result.getStatusCode());
-    }
-
-    @Test
-    public void givenRequestToHealth_shouldReturn200() {
+    public void givenRequestToActuatorHealth_shouldReturn200() {
         ResponseEntity<String> result = template.getForEntity("/actuator/health", String.class);
         assertEquals(HttpStatus.OK, result.getStatusCode());
     }

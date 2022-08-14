@@ -33,14 +33,14 @@ One is to run with Maven command.
 
 To run application with disabled security:
 ```shell
-mvn spring-boot:run -D"spring-boot.run.profiles"="LOCAL" -D"spring-boot.run.jvmArguments"="-DTWITCH_CLIENT_ID=cwnkzd3n6zm6jgenoe3d9w9a8mruv2,-DTWITCH_CLIENT_SECRET=jcde6htcthfx1bkw6zo9z2bqnjxpx5,-DTWITCH_CLIENT_BEARER=opy9v7k4wtwduk5kuhbs0hfnykvilt"      
+mvn spring-boot:run -D"spring-boot.run.profiles"="LOCAL" -D"spring-boot.run.jvmArguments"="-DTWITCH_CLIENT_ID=[YOUR_TWITCH_CLIENT_ID],-DTWITCH_CLIENT_SECRET=[YOUR_TWITCH_CLIENT_SECRET]"      
 ```
 
 To run application with enabled security:
 ```shell
-mvn spring-boot:run -D"spring-boot.run.profiles"="DEV" -D"spring-boot.run.jvmArguments"="-DTWITCH_CLIENT_ID=cwnkzd3n6zm6jgenoe3d9w9a8mruv2,-DTWITCH_CLIENT_SECRET=jcde6htcthfx1bkw6zo9z2bqnjxpx5,-DTWITCH_CLIENT_BEARER=opy9v7k4wtwduk5kuhbs0hfnykvilt"      
+mvn spring-boot:run -D"spring-boot.run.profiles"="DEV" -D"spring-boot.run.jvmArguments"="-DTWITCH_CLIENT_ID=[YOUR_TWITCH_CLIENT_ID],-DTWITCH_CLIENT_SECRET=[YOUR_TWITCH_CLIENT_SECRET]"      
 ```
-and fill properties with values in application-DEV.yml
+and fill properties with values in src/main/resources/application-DEV.yml
 ```yml
 authentication:
   user: ${AUTH_USERNAME}
@@ -48,6 +48,25 @@ authentication:
 ```
 NOTE! Remember to put your password in format '{noop}[PASSWORD]' where [PASSWORD] is your own password for basic authentication. 
 
+## How to get client id and client secret for TWITCH API
+- go to https://dev.twitch.tv
+- sign in or register
+- click 'Your Console'
+![Your console Twitch](.github/imgs/console.png?raw=true "Your Console Twitch")
+- click 'Register your application'
+  ![Register App Twitch](.github/imgs/register.png?raw=true "Register App Twitch")
+- Fill in the form, you can provide any redirect URL as for now application doesn't allow login
+  ![Fill in the form Twitch](.github/imgs/application_form.png?raw=true "Fill in the form Twitch")
+- Click 'Create', you will be redirected to https://dev.twitch.tv/console/apps/
+- Click 'Manage' next to your newly registered application
+  ![Manage created App Twitch](.github/imgs/manage.png?raw=true "Manage created App Twitch")
+- Copy your Client ID from the form and save it
+  ![Client ID Twitch](.github/imgs/client_id.png?raw=true "Client ID Twitch")
+- Click 'New Secret' Button, it will instantly show your secret, save it next to your client id
+  ![Client Secret Twitch](.github/imgs/client_secret.png?raw=true "Client Secret Twitch")
+
+
+### Now you can use those strings to run application. Instruction how to do it is in 'Running the application locally' section.
 ## Swagger
 
 Swagger v3 is avaiable under URL: 

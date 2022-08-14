@@ -2,6 +2,7 @@ package com.pajelonek.clipwatcher.service.twitch.client;
 
 import com.pajelonek.clipwatcher.configuration.twitch.TwitchApiConfiguration;
 import com.pajelonek.clipwatcher.configuration.twitch.TwitchCredentialsConfiguration;
+import com.pajelonek.clipwatcher.domain.twitch.auth.RefreshAuthTokenResponse;
 import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesRequest;
 import com.pajelonek.clipwatcher.domain.twitch.categories.CategoriesResponse;
 import com.pajelonek.clipwatcher.domain.twitch.channels.ChannelsResponse;
@@ -9,6 +10,7 @@ import com.pajelonek.clipwatcher.domain.twitch.streams.TopStreamsResponse;
 import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
 import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -22,6 +24,11 @@ import java.util.Collections;
 @Slf4j
 public class TwitchApiClient {
 
+    @Value("${twitch.credentials.clientId}")
+    private String clientId;
+
+    @Value("${twitch.credentials.clientSecret}")
+    private String clientSecret;
     private final TwitchApiConfiguration twitchApiConfiguration;
 
     private final TwitchCredentialsConfiguration twitchCredentialsConfiguration;
@@ -115,5 +122,18 @@ public class TwitchApiClient {
                 restTemplate.exchange(urlTemplate, HttpMethod.GET, new HttpEntity<>(headers), ChannelsResponse.class);
         log.info("Twitch Api responded with " + searchChannelsResponse.getBody());
         return searchChannelsResponse.getBody();
+    }
+
+    public RefreshAuthTokenResponse getNewAuthToken() {
+        log.info("Calling twitch api for endpoint /oauth2/token");
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
+
+        String urlTemplate = TwitchApiUrlCreator.createRefreshAuthTokenUrl(twitchApiConfiguration.getTokenEndpoint(), twitchCredentialsConfiguration.getClientId(), twitchCredentialsConfiguration.getClientSecret());
+        HttpEntity<RefreshAuthTokenResponse> refreshAuthTokenResponse =
+                restTemplate.exchange(urlTemplate, HttpMethod.POST, new HttpEntity<>(headers), RefreshAuthTokenResponse.class);
+        log.info("Twitch Api Refresh Auth Token responded");
+        return refreshAuthTokenResponse.getBody();
     }
 }

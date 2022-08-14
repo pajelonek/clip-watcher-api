@@ -61,4 +61,12 @@ public class TwitchApiUrlCreator {
                 .queryParamIfPresent("query", Optional.of(query))
                 .toUriString();
     }
+
+    public static String createRefreshAuthTokenUrl(String refreshAuthTokenEndpoint, String clientId, String clientSecret) {
+        return UriComponentsBuilder.fromHttpUrl(refreshAuthTokenEndpoint)
+                .queryParamIfPresent("client_id", Optional.of(clientId))
+                .queryParamIfPresent("client_secret", Optional.of(clientSecret))
+                .queryParamIfPresent("grant_type", Optional.of("client_credentials"))
+                .toUriString();
+    }
 }
