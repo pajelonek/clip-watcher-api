@@ -52,7 +52,7 @@ https://pajelonek.github.io/clip-watcher-ui/
 There are several ways to run this application on your local machine.
 One is to run with Maven command.
 
-## Running application with enabled basic authorization
+### Running application with enabled basic authorization
 To run application locally you need to fill required properties.
 1. Fill properties with values in src/main/resources/application-DEV.yml to enable basic auth
   ```yml
@@ -82,7 +82,7 @@ To run application locally you need to fill required properties.
   ```shell
   mvn spring-boot:run -D"spring-boot.run.profiles"="DEV"      
   ```
-## Running application with disabled security:
+### Running application with disabled security:
   1. Fill properties with values in src/main/resources/application.yml
 ```yml
 twitch:
