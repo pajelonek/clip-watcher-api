@@ -1,5 +1,6 @@
 package com.pajelonek.clipwatcher.domain.twitch.channels;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Data
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Channel {
     private String broadcaster_language;
     private String broadcaster_login;
