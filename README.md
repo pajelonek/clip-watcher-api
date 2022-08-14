@@ -69,6 +69,12 @@ authentication:
 ```
 NOTE! Remember to put your password in format '{noop}[PASSWORD]' where [PASSWORD] is your own password for basic authentication. 
 
+Example:
+```yml
+authentication:
+  user: admin
+  password: {noop}password
+```
 ## Swagger
 
 Swagger v3 is avaiable under URL: 
