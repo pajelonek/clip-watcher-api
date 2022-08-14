@@ -1,6 +1,7 @@
 package com.pajelonek.clipwatcher.domain.twitch.streams;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -13,7 +14,8 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Stream {
     private String id;
-    private String user_id;
+    @JsonProperty("user_id")
+    private String userId;
     private String user_login;
     private String user_name;
     private String game_id;

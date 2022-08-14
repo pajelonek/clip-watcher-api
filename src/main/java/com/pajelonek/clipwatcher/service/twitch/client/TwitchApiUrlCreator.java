@@ -10,6 +10,7 @@ import java.util.Optional;
 @Slf4j
 public class TwitchApiUrlCreator {
 
+    private static final String FIRST_QUERY_PARAM = "first";
     private TwitchApiUrlCreator() {
         throw new IllegalStateException("Utility class");
     }
@@ -22,7 +23,7 @@ public class TwitchApiUrlCreator {
                 .queryParamIfPresent("id", Optional.ofNullable(clipsRequest.getClipId()))
                 .queryParamIfPresent("after", Optional.ofNullable(clipsRequest.getAfter()))
                 .queryParamIfPresent("before", Optional.ofNullable(clipsRequest.getBefore()))
-                .queryParamIfPresent("first", Optional.ofNullable(clipsRequest.getFirst()))
+                .queryParamIfPresent(FIRST_QUERY_PARAM, Optional.ofNullable(clipsRequest.getFirst()))
                 .queryParamIfPresent("started_at", Optional.ofNullable(clipsRequest.getStartedAt()))
                 .queryParamIfPresent("ended_at", Optional.ofNullable(clipsRequest.getEndedAt()))
                 .toUriString();
@@ -33,7 +34,7 @@ public class TwitchApiUrlCreator {
         return UriComponentsBuilder.fromHttpUrl(categoriesEndpoint)
                 .queryParamIfPresent("after", Optional.ofNullable(categoriesRequest.getAfter()))
                 .queryParamIfPresent("before", Optional.ofNullable(categoriesRequest.getBefore()))
-                .queryParamIfPresent("first", Optional.ofNullable(categoriesRequest.getFirst()))
+                .queryParamIfPresent(FIRST_QUERY_PARAM, Optional.ofNullable(categoriesRequest.getFirst()))
                 .toUriString();
     }
 
@@ -47,7 +48,7 @@ public class TwitchApiUrlCreator {
     public static String createTopStreamUrl(String topStreamsEndpoint) {
         log.info("Creating url for /top/streams endpoint {}", topStreamsEndpoint);
         return UriComponentsBuilder.fromHttpUrl(topStreamsEndpoint)
-                .queryParamIfPresent("first", Optional.of(10))
+                .queryParamIfPresent(FIRST_QUERY_PARAM, Optional.of(10))
                 .toUriString();
     }
 

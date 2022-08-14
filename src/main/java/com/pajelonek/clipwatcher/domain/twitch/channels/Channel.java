@@ -1,6 +1,7 @@
 package com.pajelonek.clipwatcher.domain.twitch.channels;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -12,15 +13,26 @@ import java.util.List;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Channel {
-    private String broadcaster_language;
-    private String broadcaster_login;
-    private String display_name;
-    private String game_id;
-    private String game_name;
+    @JsonProperty("broadcaster_language")
+    private String broadcasterLanguage;
+    @JsonProperty("broadcaster_login")
+    private String broadcasterLogin;
+    @JsonProperty("display_name")
+    private String displayName;
+    @JsonProperty("game_id")
+    private String gameId;
+    @JsonProperty("game_name")
+    private String gameName;
+    @JsonProperty("id")
     private String id;
-    private boolean is_live;
-    private List<String> tag_ids;
-    private String thumbnail_url;
+    @JsonProperty("is_live")
+    private boolean isLive;
+    @JsonProperty("tag_ids")
+    private List<String> tagIds;
+    @JsonProperty("thumbnail_url")
+    private String thumbnailUrl;
+    @JsonProperty("title")
     private String title;
-    private String started_at;
+    @JsonProperty("started_at")
+    private String startedAt;
 }
