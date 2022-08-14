@@ -47,12 +47,13 @@ https://pajelonek.github.io/clip-watcher-ui/
 
 ### Now you can use those strings to run application. Instruction how to do it is in 'Running the application locally' section.
 
+
 ## Running the application locally
 
 There are several ways to run this application on your local machine.
 One is to run with Maven command.
 
-### Running application with enabled basic authorization
+### a) Running application with enabled basic authorization
 To run application locally you need to fill required properties.
 1. Fill properties with values in src/main/resources/application-DEV.yml to enable basic auth
   ```yml
@@ -70,6 +71,7 @@ To run application locally you need to fill required properties.
     user: "admin"
     password: "{noop}password"
   ```
+
 2. Fill properties with values in src/main/resources/application.yml
   ```yml
   twitch:
@@ -78,11 +80,14 @@ To run application locally you need to fill required properties.
       clientSecret: [YOUR_CLIENT_SECRET]
   ```
   How to get client id and client secret is described above in the previous section!
+
 3. Run:
   ```shell
   mvn spring-boot:run -D"spring-boot.run.profiles"="DEV"      
   ```
-### Running application with disabled security:
+
+### b) Running application with disabled security:
+
   1. Fill properties with values in src/main/resources/application.yml
 ```yml
 twitch:
@@ -90,8 +95,10 @@ twitch:
     clientId: [YOUR_CLIENT_ID]
     clientSecret: [YOUR_CLIENT_SECRET]
 ```
+
 How to get client id and client secret is described above in the previous section!
-  2. and run:
+
+  2. Run:
   ```shell
   mvn spring-boot:run -D"spring-boot.run.profiles"="LOCAL"      
   ```
