@@ -13,19 +13,32 @@ import java.util.List;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Stream {
+    @JsonProperty("id")
     private String id;
     @JsonProperty("user_id")
     private String userId;
-    private String user_login;
-    private String user_name;
-    private String game_id;
-    private String game_name;
+    @JsonProperty("user_login")
+    private String userLogin;
+    @JsonProperty("user_name")
+    private String userName;
+    @JsonProperty("game_id")
+    private String gameId;
+    @JsonProperty("game_name")
+    private String gameName;
+    @JsonProperty("type")
     private String type;
+    @JsonProperty("title")
     private String title;
-    private int viewer_count;
-    private String started_at;
+    @JsonProperty("viewer_count")
+    private int viewerCount;
+    @JsonProperty("started_at")
+    private String startedAt;
+    @JsonProperty("language")
     private String language;
-    private String thumbnail_url;
-    private List<String> tag_ids;
-    private boolean is_mature;
+    @JsonProperty("thumbnail_url")
+    private String thumbnailUrl;
+    @JsonProperty("tag_ids")
+    private List<String> tagIds;
+    @JsonProperty("is_mature")
+    private boolean isMature;
 }
