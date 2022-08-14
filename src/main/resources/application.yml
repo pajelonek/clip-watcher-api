@@ -7,8 +7,8 @@ server:
 
 twitch:
   credentials:
-    clientId: ${TWITCH_CLIENT_ID}
-    clientSecret: ${TWITCH_CLIENT_SECRET}
+    clientId: "z30k2ygw7t67rjtivm1sisktuxs4n5"
+    clientSecret: "73jxiqch5xawowelvfhbxwonxwzosy"
   api:
     clipsEndpoint: https://api.twitch.tv/helix/clips
     topStreamsEndpoint: https://api.twitch.tv/helix/streams

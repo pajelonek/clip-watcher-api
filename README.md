@@ -52,29 +52,49 @@ https://pajelonek.github.io/clip-watcher-ui/
 There are several ways to run this application on your local machine.
 One is to run with Maven command.
 
-To run application with disabled security:
-```shell
-mvn spring-boot:run -D"spring-boot.run.profiles"="LOCAL" -D"spring-boot.run.jvmArguments"="-DTWITCH_CLIENT_ID=[YOUR_TWITCH_CLIENT_ID],-DTWITCH_CLIENT_SECRET=[YOUR_TWITCH_CLIENT_SECRET]"      
-```
-
-To run application with enabled security:
-```shell
-mvn spring-boot:run -D"spring-boot.run.profiles"="DEV" -D"spring-boot.run.jvmArguments"="-DTWITCH_CLIENT_ID=[YOUR_TWITCH_CLIENT_ID],-DTWITCH_CLIENT_SECRET=[YOUR_TWITCH_CLIENT_SECRET]"      
-```
-and fill properties with values in src/main/resources/application-DEV.yml
+## Running application with enabled basic authorization
+To run application locally you need to fill required properties.
+1. Fill properties with values in src/main/resources/application-DEV.yml to enable basic auth
+  ```yml
+  authentication:
+    user: ${AUTH_USERNAME}
+    password: ${AUTH_PASSWORD}
+  ```
+  NOTE! 
+  
+  Remember to put your password in format '{noop}[PASSWORD]' where [PASSWORD] is your own password for basic authentication.
+  
+  Example:
+  ```yml
+  authentication:
+    user: "admin"
+    password: "{noop}password"
+  ```
+2. Fill properties with values in src/main/resources/application.yml
+  ```yml
+  twitch:
+    credentials:
+      clientId: [YOUR_CLIENT_ID]
+      clientSecret: [YOUR_CLIENT_SECRET]
+  ```
+  How to get client id and client secret is described above in the previous section!
+3. Run:
+  ```shell
+  mvn spring-boot:run -D"spring-boot.run.profiles"="DEV"      
+  ```
+## Running application with disabled security:
+  1. Fill properties with values in src/main/resources/application.yml
 ```yml
-authentication:
-  user: ${AUTH_USERNAME}
-  password: ${AUTH_PASSWORD}
+twitch:
+  credentials:
+    clientId: [YOUR_CLIENT_ID]
+    clientSecret: [YOUR_CLIENT_SECRET]
 ```
-NOTE! Remember to put your password in format '{noop}[PASSWORD]' where [PASSWORD] is your own password for basic authentication. 
-
-Example:
-```yml
-authentication:
-  user: admin
-  password: {noop}password
-```
+How to get client id and client secret is described above in the previous section!
+  2. and run:
+  ```shell
+  mvn spring-boot:run -D"spring-boot.run.profiles"="LOCAL"      
+  ```
 ## Swagger
 
 Swagger v3 is avaiable under URL: 
