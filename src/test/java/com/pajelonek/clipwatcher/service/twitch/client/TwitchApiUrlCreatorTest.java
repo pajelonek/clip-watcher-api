@@ -30,7 +30,7 @@ class TwitchApiUrlCreatorTest {
     void testCreateTopStreamsUrl(){
         // given
         String twitchApiUrl = "http://localhost/top/games";
-        String expected = "http://localhost/top/games";
+        String expected = "http://localhost/top/games?first=10";
 
         // when
         String createdUrl = TwitchApiUrlCreator.createTopStreamUrl(twitchApiUrl);

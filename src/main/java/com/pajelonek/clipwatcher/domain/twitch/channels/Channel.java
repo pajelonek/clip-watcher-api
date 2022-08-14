@@ -10,15 +10,15 @@ import java.util.List;
 @Getter
 @Setter
 public class Channel {
-    public String broadcaster_language;
-    public String broadcaster_login;
-    public String display_name;
-    public String game_id;
-    public String game_name;
-    public String id;
-    public boolean is_live;
-    public List<String> tag_ids;
-    public String thumbnail_url;
-    public String title;
-    public String started_at;
+    private String broadcaster_language;
+    private String broadcaster_login;
+    private String display_name;
+    private String game_id;
+    private String game_name;
+    private String id;
+    private boolean is_live;
+    private List<String> tag_ids;
+    private String thumbnail_url;
+    private String title;
+    private String started_at;
 }

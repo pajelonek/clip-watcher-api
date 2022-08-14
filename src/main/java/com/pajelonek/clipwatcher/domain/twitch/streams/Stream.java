@@ -10,18 +10,18 @@ import java.util.List;
 @Getter
 @Setter
 public class Stream {
-    public String id;
-    public String user_id;
-    public String user_login;
-    public String user_name;
-    public String game_id;
-    public String game_name;
-    public String type;
-    public String title;
-    public int viewer_count;
-    public String started_at;
-    public String language;
-    public String thumbnail_url;
-    public List<String> tag_ids;
-    public boolean is_mature;
+    private String id;
+    private String user_id;
+    private String user_login;
+    private String user_name;
+    private String game_id;
+    private String game_name;
+    private String type;
+    private String title;
+    private int viewer_count;
+    private String started_at;
+    private String language;
+    private String thumbnail_url;
+    private List<String> tag_ids;
+    private boolean is_mature;
 }

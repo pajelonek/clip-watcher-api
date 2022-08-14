@@ -99,7 +99,7 @@ class IntegrationTests {
     @Test
     void testTopStreamsResponse() throws IOException {
         // given
-        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/streams"))
+        mockServer.expect(ExpectedCount.once(), requestTo("https://api.twitch.tv/helix/streams?first=10"))
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withStatus(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)

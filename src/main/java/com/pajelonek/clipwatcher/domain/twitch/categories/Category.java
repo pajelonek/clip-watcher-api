@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 public class Category {
-    public String id;
-    public String name;
-    public String box_art_url;
+    private String id;
+    private String name;
+    private String box_art_url;
 }
