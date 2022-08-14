@@ -22,9 +22,15 @@ public class CustomWebSecurityConfigurer {
     @Value("${authentication.password}")
     private String password;
 
+    private static final String[] AUTH_WHITELIST = {
+            "/actuator/health",
+            // -- Swagger UI v3 (OpenAPI)
+            "/v3/api-docs/**",
+            "/swagger-ui/**"
+    };
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return web -> web.ignoring().antMatchers("/actuator/health");
+        return web -> web.ignoring().antMatchers(AUTH_WHITELIST);
     }
 
     @Bean
