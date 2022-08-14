@@ -51,10 +51,9 @@ https://pajelonek.github.io/clip-watcher-ui/
 ## Running the application locally
 
 There are several ways to run this application on your local machine.
-One is to run with Maven command.
+One is to run with Maven command, in this tutorial we will only cover that way.
 
 ### a) Running application with enabled basic authorization
-To run application locally you need to fill required properties.
 1. Fill properties with values in src/main/resources/application-DEV.yml to enable basic auth
   ```yml
   authentication:
@@ -79,6 +78,14 @@ To run application locally you need to fill required properties.
       clientId: [YOUR_CLIENT_ID]
       clientSecret: [YOUR_CLIENT_SECRET]
   ```
+Example:
+  ```yml
+  twitch:
+    credentials:
+      clientId: "id_generated_from_twitch"
+      clientSecret: "secret_generated_from_twitch"
+  ```
+
   How to get client id and client secret is described above in the previous section!
 
 3. Run:
@@ -95,6 +102,14 @@ twitch:
     clientId: [YOUR_CLIENT_ID]
     clientSecret: [YOUR_CLIENT_SECRET]
 ```
+
+Example:
+  ```yml
+  twitch:
+    credentials:
+      clientId: "id_generated_from_twitch"
+      clientSecret: "secret_generated_from_twitch"
+  ```
 
 How to get client id and client secret is described above in the previous section!
 
