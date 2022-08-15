@@ -31,8 +31,6 @@ public class ClipsRequestValidator {
             throw new DefaultException(Error.CLIPS_MORE_THAN_ONE_MAIN_QUERY_PROVIDED);
         }
 
-
-
         if (clipsRequest.getFirst() != null) {
             int first = Integer.parseInt(clipsRequest.getFirst());
             if (first > 100 || first < 0 ) {

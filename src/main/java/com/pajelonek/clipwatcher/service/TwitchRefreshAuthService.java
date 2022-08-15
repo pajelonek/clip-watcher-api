@@ -23,7 +23,7 @@ public class TwitchRefreshAuthService {
         this.twitchCredentialsConfiguration = twitchCredentialsConfiguration;
     }
 
-    @Scheduled(fixedRateString  = "${twitch.auth.scheduler.interval.inMillis}", initialDelay=1000)
+    @Scheduled(fixedRateString  = "${twitch.auth.scheduler.interval.inMillis}", initialDelay=3000)
     public void refreshTwitchAuthToken() {
         log.info("Refreshing twitch auth token started at {}", dateFormat.format(new Date()));
         RefreshAuthTokenResponse newAuthToken = twitchApiClient.getNewAuthToken();

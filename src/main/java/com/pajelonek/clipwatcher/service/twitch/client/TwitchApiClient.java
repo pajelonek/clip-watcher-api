@@ -10,7 +10,6 @@ import com.pajelonek.clipwatcher.domain.twitch.streams.TopStreamsResponse;
 import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsRequest;
 import com.pajelonek.clipwatcher.domain.twitch.clips.ClipsResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -23,12 +22,6 @@ import java.util.Collections;
 @Service
 @Slf4j
 public class TwitchApiClient {
-
-    @Value("${twitch.credentials.clientId}")
-    private String clientId;
-
-    @Value("${twitch.credentials.clientSecret}")
-    private String clientSecret;
     private final TwitchApiConfiguration twitchApiConfiguration;
 
     private final TwitchCredentialsConfiguration twitchCredentialsConfiguration;
