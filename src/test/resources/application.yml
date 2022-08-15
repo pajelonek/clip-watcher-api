@@ -33,6 +33,3 @@ twitch:
       enabled: false
       interval:
         inMillis: 2000
-
-cors:
-  origin: http://localhost
