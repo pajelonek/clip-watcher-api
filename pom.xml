@@ -11,7 +11,7 @@
 
     <groupId>com.pajelonek</groupId>
     <artifactId>clipwatcher</artifactId>
-    <version>1.0.23</version>
+    <version>1.0.24</version>
     <name>ClipWatcher-API</name>
     <description>Backend for clip watcher application</description>
 

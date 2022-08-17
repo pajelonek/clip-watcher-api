@@ -34,8 +34,7 @@ public class ClipWatcherApplication {
 			@Override
 			public void addCorsMappings(@NonNull CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("*");
-			}
+						.allowedOrigins("http://localhost:3000", "https://pajelonek.github.io");			}
 		};
 	}
 
