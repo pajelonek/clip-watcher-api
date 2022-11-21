@@ -31,7 +31,7 @@
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
         <jacoco.version>0.8.8</jacoco.version>
-        <swagger.version>1.6.9</swagger.version>
+        <swagger.version>1.6.13</swagger.version>
         <awaitility.version>3.1.6</awaitility.version>
     </properties>
 
