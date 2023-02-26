@@ -18,7 +18,7 @@
     <properties>
         <java.version>17</java.version>
         <spring.security.version>5.7.1</spring.security.version>
-        <lombok.version>1.18.24</lombok.version>
+        <lombok.version>1.18.26</lombok.version>
         <junit.version>4.13.2</junit.version>
         <junit.vintage.version>5.8.2</junit.vintage.version>
         <spring.cloud.starter.stub.version>3.1.3</spring.cloud.starter.stub.version>
